@@ -1,1 +1,0 @@
-# gerenciaodor_de_prompts

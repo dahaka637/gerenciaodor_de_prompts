@@ -20,30 +20,55 @@ def initialize_prompts_file():
     else:
         print(f"Arquivo {PROMPTS_FILE} já existe.")
 
+def save_prompt_to_file(name, content, color="#444444", original_name=None):
+    """
+    Save or edit a prompt in the prompts.json file.
 
-def save_prompt_to_file(name, content):
-    """Save or edit a prompt in the prompts.json file."""
+    :param name: Novo nome do prompt
+    :param content: Conteúdo do prompt
+    :param color: Cor associada ao prompt (em HEX), padrão: #444444
+    :param original_name: Nome original do prompt, se estiver sendo editado
+    """
     if not name or not content:
         raise ValueError("O nome e o conteúdo do prompt não podem estar vazios.")
 
     data = load_json_data()
+    updated = False
 
-    # Check for existing prompt
     for prompt in data["prompts"]:
-        if prompt["name"] == name:
+        # Atualiza se encontrou o nome original ou o nome atual
+        if prompt["name"] == (original_name or name):
+            prompt["name"] = name
             prompt["content"] = content
+            prompt["color"] = color
+            updated = True
             break
-    else:
-        data["prompts"].append({"name": name, "content": content})
+
+    if not updated:
+        # Caso novo, adiciona com a cor
+        data["prompts"].append({
+            "name": name,
+            "content": content,
+            "color": color
+        })
 
     save_json_data(data)
     print(f"Prompt '{name}' salvo com sucesso!")
 
 
+
+
 def load_prompts():
-    """Load prompts from the prompts.json file."""
+    """Load prompts from the prompts.json file and garantee default fields."""
     data = load_json_data()
-    return data.get("prompts", [])
+    prompts = data.get("prompts", [])
+    
+    for prompt in prompts:
+        if "color" not in prompt:
+            prompt["color"] = "#444444"  # Valor padrão
+
+    return prompts
+
 
 
 def delete_prompt(name):
