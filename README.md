@@ -5,6 +5,8 @@ O **Gerenciador de Prompts para IA** é uma aplicação desktop desenvolvida em 
 
 Com ele, é possível **gerenciar coleções de prompts**, usar rapidamente textos pré-formatados para **transcrições, sínteses, declarações, relatórios e conclusões**, e copiá-los diretamente para a área de transferência, prontos para uso em modelos de **Inteligência Artificial**.
 
+<img width="654" height="583" alt="image" src="https://github.com/user-attachments/assets/4fa238f7-2128-400d-995f-2fda891f9470" />
+
 ---
 
 ## 🚀 Funcionalidades
@@ -19,6 +21,7 @@ Com ele, é possível **gerenciar coleções de prompts**, usar rapidamente text
 - Prompts **pré-carregados** no arquivo `prompts.json` voltados ao **uso jurídico/policial**.
 
 ---
+<img width="652" height="584" alt="image" src="https://github.com/user-attachments/assets/33a5dc93-be3f-4462-a001-459446a8a63d" />
 
 ## 📂 Estrutura do Projeto
 ```
